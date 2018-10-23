@@ -1,0 +1,37 @@
+<div [ngStyle]="{'background-color':'black','color': 'white' }">
+    <div class="container">
+        <div class="row text-center vertical-center">
+            <div *ngIf="song?.name && listening" class="col-md-4 mt-3">
+                <h1>Ouvindo agora</h1>
+                <h4><b>{{ song['name'] }}</b> from <b>{{ song['artist']['#text'] }}</b></h4>
+                <img src="{{song['image'][3]['#text']}}">
+            </div>
+            <div *ngIf="song?.name && !listening" class="col-md-4 mt-3">
+                <h1>Última música</h1>
+                <h4><b>{{ song['name'] }}</b> from <b>{{ song['artist']['#text'] }}</b></h4>
+                <img src="{{song['image'][3]['#text']}}">
+            </div>
+            <div class="col-md-4 text-center vertical-center mt-3">
+                <h4>Total de músicas tocadas desde Novembro de 2017</h4>
+                <br>
+                <h1>{{ totalScrobble }}</h1>
+            </div>
+            <div class="col-md-4 text-center vertical-center mt-3">
+                <h1>Bandas mais tocadas</h1>
+                
+                <div class="row mb-5">
+                    <div *ngFor="let obj of array">
+                        <div class="col-xs-12 portfolio">
+                            <div class="hvrbox">
+                                <img src="{{obj?.image[2]['#text']}}" alt="band" class="hvrbox-layer_bottom">
+                                <div class="hvrbox-layer_top">
+                                    <div class="hvrbox-text">{{obj?.name}}<br>{{obj?.playcount}} Plays</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
