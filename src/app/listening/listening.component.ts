@@ -19,7 +19,7 @@ export class ListeningComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ricardobr001&api_key=' + this.APIKEY + '&format=json')
+        this.http.get('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ricardobr001&api_key=' + this.APIKEY + '&format=json')
         .subscribe(res => {
             this.totalScrobble = res['recenttracks']['@attr']['total'];
 
@@ -32,9 +32,8 @@ export class ListeningComponent implements OnInit {
             this.song = res['recenttracks']['track'][0];
         });
 
-        this.http.get('http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=ricardobr001&api_key=' + this.APIKEY + '&format=json&limit=6')
+        this.http.get('https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=ricardobr001&api_key=' + this.APIKEY + '&format=json&limit=6')
         .subscribe(res => {
-            console.log(res['topartists']['artist']);
             this.array = res['topartists']['artist'];
         });
     }
