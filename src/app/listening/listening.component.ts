@@ -44,10 +44,10 @@ export class ListeningComponent implements OnInit {
     getLyric() {
         this.http.get('https://api.vagalume.com.br/search.php?apikey=' + this.VAGALUME_APIKEY + '&art=' + this.song['artist']['#text'] + '&mus=' + this.song['name'])
         .subscribe(res => {
-            if (!res['type'].localeCompare('exact')) {
-                this.lyric = res['mus'][0]['text'].replace(new RegExp('\n', 'g'), '<br>');
+            if (!res['type'].localeCompare('song_notfound')) {
+                this.lyric = '404 NOT FOUND<br>¯\\_(ツ)_/¯';
             } else {
-                this.lyric = '404 NOT FOUND<br>¯\\_(ツ)_/¯'
+                this.lyric = res['mus'][0]['text'].replace(new RegExp('\n', 'g'), '<br>');
             }
         });
     }
