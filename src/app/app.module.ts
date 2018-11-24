@@ -8,6 +8,7 @@ import { ConstrucaoComponent } from './construcao/construcao.component';
 import { HelloComponent } from './hello/hello.component';
 import { ListeningComponent } from './listening/listening.component';
 import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FooterComponent } from './footer/footer.component';
     ConstrucaoComponent,
     HelloComponent,
     ListeningComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent
   ],
   imports: [
     HttpClientModule,
