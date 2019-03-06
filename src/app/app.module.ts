@@ -9,22 +9,26 @@ import { HelloComponent } from './hello/hello.component';
 import { ListeningComponent } from './listening/listening.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { MenuComponent } from './menu/menu.component';
+import { CvComponent } from './cv/cv.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ConstrucaoComponent,
-    HelloComponent,
-    ListeningComponent,
-    FooterComponent,
-    AboutComponent
-  ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ConstrucaoComponent,
+        HelloComponent,
+        ListeningComponent,
+        FooterComponent,
+        AboutComponent,
+        MenuComponent,
+        CvComponent
+    ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

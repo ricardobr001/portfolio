@@ -52,4 +52,8 @@ export class ListeningComponent implements OnInit {
         });
     }
 
+    reload() {
+        this.ngOnInit();
+    }
+
 }

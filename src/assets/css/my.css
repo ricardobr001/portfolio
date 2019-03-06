@@ -10,6 +10,16 @@ html, body {
     width: 100%;
     background-size: cover;
 }
+
+#subroute {
+    background: black;
+    color: white;
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
 .landing-text {
     display: table-cell;
     text-align: center;

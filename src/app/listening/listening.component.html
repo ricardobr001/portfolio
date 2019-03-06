@@ -1,24 +1,40 @@
-<div [ngStyle]="{'background-color':'black','color': 'white' }">
+<div id="subroute">
     <div class="container">
         <div class="row text-center vertical-center">
             <div *ngIf="song?.name && listening" class="col-md-4 mt-3">
                 <h1>Ouvindo agora</h1>
                 <h4><b>{{ song['name'] }}</b> from <b>{{ song['artist']['#text'] }}</b></h4>
                 <img src="{{song['image'][3]['#text']}}">
-                <div class="text-center vertical-center mt-3">
-                    <button class="btn btn-dark" data-toggle="collapse" data-target="#collapseLyric" aria-controls="collapseOne">
-                        Ver letra
-                    </button>
+                <div class="row text-center vertical-center justify-content-md-center mt-3">
+                    <div class="col-md-auto">
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#collapseLyric"
+                            aria-controls="collapseOne">
+                            Ver letra
+                        </button>
+                    </div>
+                    <div class="col-md-auto">
+                        <button class="btn btn-dark" (click)=reload()>
+                            <i class="fas fa-redo-alt"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div *ngIf="song?.name && !listening" class="col-md-4 mt-3">
                 <h1>Última música</h1>
                 <h4><b>{{ song['name'] }}</b> from <b>{{ song['artist']['#text'] }}</b></h4>
                 <img src="{{song['image'][3]['#text']}}">
-                <div class="text-center vertical-center mt-3">
-                    <button class="btn btn-dark" data-toggle="collapse" data-target="#collapseLyric" aria-controls="collapseOne">
-                        Ver letra
-                    </button>
+                <div class="row text-center vertical-center justify-content-md-center mt-3">
+                    <div class="col-md-auto">
+                        <button class="btn btn-dark" data-toggle="collapse" data-target="#collapseLyric"
+                            aria-controls="collapseOne">
+                            Ver letra
+                        </button>
+                    </div>
+                    <div class="col-md-auto">
+                        <button class="btn btn-dark" (click)=reload()>
+                            <i class="fas fa-redo-alt"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 text-center vertical-center mt-3">
@@ -47,7 +63,8 @@
                 <h4>
                     <div [innerHTML]="lyric"></div>
                 </h4>
-                <button class="btn btn-dark mb-4" data-toggle="collapse" data-target="#collapseLyric" aria-controls="collapseOne">
+                <button class="btn btn-dark mb-4" data-toggle="collapse" data-target="#collapseLyric"
+                    aria-controls="collapseOne">
                     Fechar
                 </button>
             </div>
