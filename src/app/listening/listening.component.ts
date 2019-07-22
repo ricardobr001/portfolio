@@ -24,6 +24,25 @@ export class ListeningComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.getCurrentSong();
+        this.getTopArtists();
+    }
+
+    getTopArtists() {
+        this.http.get(`https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=ricardobr001&api_key=${this.LAST_APIKEY}&format=json&limit=${this.NUMBER_OF_ARTISTS}`)
+        .subscribe(res => {
+            this.array = [];
+
+            this.randomNumbers(this.NUMBER_OF_ARTISTS).forEach(index => {
+                res['topartists']['artist'][index]['image'] = '';
+                this.array.push(res['topartists']['artist'][index]);
+            });
+
+            this.recoverArtistImage();
+        });
+    }
+
+    getCurrentSong() {
         this.http.get(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ricardobr001&api_key=${this.LAST_APIKEY}&format=json`)
         .subscribe(res => {
             this.totalScrobble = res['recenttracks']['@attr']['total'];
@@ -36,19 +55,6 @@ export class ListeningComponent implements OnInit {
 
             this.song = res['recenttracks']['track'][0];
             this.getLyric();
-        });
-
-        this.http.get(`https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=ricardobr001&api_key=${this.LAST_APIKEY}&format=json&limit=${this.NUMBER_OF_ARTISTS}`)
-        .subscribe(res => {
-            this.array = [];
-
-            this.randomNumbers(this.NUMBER_OF_ARTISTS).forEach(index => {
-                res['topartists']['artist'][index]['image'] = '';
-                this.array.push(res['topartists']['artist'][index]);
-            });
-
-            this.recoverArtistImage();
-            console.log(this.array);
         });
     }
 
@@ -102,6 +108,6 @@ export class ListeningComponent implements OnInit {
     }
 
     reload() {
-        this.ngOnInit();
+        this.getCurrentSong();
     }
 }
