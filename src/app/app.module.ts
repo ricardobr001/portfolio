@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CountUpModule } from 'countup.js-angular2';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +27,8 @@ import { CvComponent } from './cv/cv.component';
     imports: [
         HttpClientModule,
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        CountUpModule
     ],
     providers: [],
     bootstrap: [AppComponent]

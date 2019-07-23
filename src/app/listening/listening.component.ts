@@ -13,11 +13,14 @@ export class ListeningComponent implements OnInit {
     SHAREDSECRET = '255c4b4363d2b2729fbdeb0957da1fb0';
     NUMBER_OF_ARTISTS = 15;
     ARTISTS_ARRAY_SIZE = 3;
-    totalScrobble: number;
+    totalScrobble = 0;
     listening: boolean;
     song: any;
     lyric: string;
     array: Array<JSON>;
+    countUpOptions = {
+        separator: '.'
+    };
 
     constructor(
         private http: HttpClient
