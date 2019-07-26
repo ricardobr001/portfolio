@@ -7,7 +7,7 @@ install:
     - npm install
 
 script:
-    - npm run build --prod
+    - ng build --prod
 
 deploy:
     provider: pages
