@@ -14,5 +14,3 @@ deploy:
     skip-cleanup: true
     github-token: $GITHUB_TOKEN
     local_dir: dist/portfolio
-    repo: ricardobr001/ricardobr001.github.io
-    target_branch: master
