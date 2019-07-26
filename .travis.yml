@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+    - 11.14.0
+cache: npm
+
+install:
+    - npm ci
+
+script:
+    - npm build --prod
+
+deploy:
+    provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    local_dir: dist/portfolio
+    repo: ricardobr001/ricardobr001.github.io
+    target_branch: master
