@@ -13,6 +13,9 @@ export class ListeningComponent implements OnInit {
     song: any;
     lyric: string;
     array: any;
+    countUpOptions = {
+        separator: '.'
+    };
 
     constructor(
         private http: HttpClient
