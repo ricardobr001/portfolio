@@ -14,14 +14,17 @@ export class ListeningComponent implements OnInit {
     lyric: string;
     array: any;
     countUpOptions = {
-        separator: '.'
+        separator: '.',
+        duration: 4
     };
+    loading: boolean;
 
     constructor(
         private http: HttpClient
     ) { }
 
     ngOnInit() {
+        this.loading = true;
         this.getCurrentSong();
         this.getTopArtists();
     }
@@ -29,7 +32,6 @@ export class ListeningComponent implements OnInit {
     getTopArtists() {
         this.http.get(`${this.BACKEND}/lastTopArtists`)
         .subscribe(res => {
-            console.log(res)
             this.array = res;
         });
     }
@@ -46,6 +48,8 @@ export class ListeningComponent implements OnInit {
                 artist: res['artist'],
                 lyric: res['lyric'].replace(new RegExp('\n', 'g'), '<br>')
             };
+
+            this.loading = false;
         });
     }
 
