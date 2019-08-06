@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Phrases } from './Phrases';
 
 @Component({
     selector: 'app-listening',
@@ -18,13 +19,18 @@ export class ListeningComponent implements OnInit {
         duration: 4
     };
     loading: boolean;
+    reloading: string;
+    phrase: string;
 
     constructor(
         private http: HttpClient
     ) { }
 
     ngOnInit() {
+        const phrases = new Phrases();
+        this.phrase = phrases.getPhrase();
         this.loading = true;
+        this.reloading = '';
         this.getCurrentSong();
         this.getTopArtists();
     }
@@ -50,10 +56,12 @@ export class ListeningComponent implements OnInit {
             };
 
             this.loading = false;
+            this.reloading = '';
         });
     }
 
     reload() {
+        this.reloading = 'fa-spin';
         this.getCurrentSong();
     }
 }

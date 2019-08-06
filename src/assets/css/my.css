@@ -45,6 +45,12 @@ body {
     justify-content: center;
     height: 100%;
 }
+.logo {
+    display: flex;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
 .app-loading .spinner {
     height: 200px;
     width: 200px;
